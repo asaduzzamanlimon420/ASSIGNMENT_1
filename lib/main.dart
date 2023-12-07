@@ -100,3 +100,57 @@ class ProductDetailsPage extends StatelessWidget {
     );
   }
 }
+class BuyNowPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Buy Now'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              'Choose Payment Method',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                PaymentMethodButton(imageUrl: 'https://logos-download.com/wp-content/uploads/2022/01/BKash_Logo-700x287.png'),
+                PaymentMethodButton(imageUrl: 'https://seeklogo.com/images/D/dutch-bangla-rocket-logo-B4D1CC458D-seeklogo.com.png'),
+                PaymentMethodButton(imageUrl: 'https://freelogopng.com/images/all_img/1679248787Nagad-Logo.png'),
+                PaymentMethodButton(imageUrl: 'https://w7.pngwing.com/pngs/698/862/png-transparent-credit-card-logo-encapsulated-postscript-visa-eps-blue-cdr-text.png'),
+                PaymentMethodButton(imageUrl: 'https://pngimg.com/d/mastercard_PNG23.png'),
+
+              ],
+            ),
+            SizedBox(height: 16),
+            DropdownButton<String>(
+              items: ['Bkash', 'Rocket', 'Nagad','VISA','Master Card']
+                  .map((String value) => DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              ))
+                  .toList(),
+              onChanged: (String? value) {
+                // Handle dropdown value change
+              },
+              hint: Text('Select an option'),
+            ),
+            SizedBox(height: 32),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Go Back'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
