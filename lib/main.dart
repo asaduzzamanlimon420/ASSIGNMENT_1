@@ -154,3 +154,24 @@ class BuyNowPage extends StatelessWidget {
     );
   }
 }
+class PaymentMethodButton extends StatelessWidget {
+  final String imageUrl;
+
+  const PaymentMethodButton({Key? key, required this.imageUrl})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      width: 50,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage(imageUrl),
+          fit: BoxFit.cover,
+        ),
+        borderRadius: BorderRadius.circular(8),
+      ),
+    );
+  }
+}
